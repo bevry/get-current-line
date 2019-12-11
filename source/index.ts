@@ -8,9 +8,11 @@ export interface LineInfo {
 	file: string
 }
 
+export type LineOffset = Partial<LineInfo>
+
 /**
  * Get the information about the line that called this method.
- * @param offset set this to the distance of lines between this method and the true caller
+ * @param offset set this to the distance between this method and the true caller
  * @throws if a failure occured creating the line info
  * @example Input
  * ``` javascript
@@ -26,9 +28,11 @@ export interface LineInfo {
  * }
  * ```
  */
-export default function getLineInfo(offset: number = 0): LineInfo {
+export default function getCurrentLine(offset: LineOffset = {}): LineInfo {
 	// Prepare
-	offset = Math.abs(offset)
+	if (offset.file == null) offset.file = __filename
+	if (offset.method == null) offset.method = 'getCurrentLine'
+	if (offset.line == null) offset.line = 0
 	const result: LineInfo = {
 		line: -1,
 		method: 'unknown',
@@ -73,17 +77,15 @@ export default function getLineInfo(offset: number = 0): LineInfo {
 			.filter((line: string) => line.length !== 0)
 
 		// Parse our lines
-		for (let index = 0; index < lines.length; index++) {
-			const line = lines[index]
-			if (line.includes(__filename) || line.includes(' at ') === false) {
+		for (const line of lines) {
+			// offset
+			if (line.includes(offset.file) || line.includes(offset.method)) continue
+			if (offset.line !== 0) {
+				--offset.line
 				continue
 			}
 
-			if (offset !== 0) {
-				--offset
-				continue
-			}
-
+			// extract
 			const parts = line.split(':')
 			if (parts.length >= 2) {
 				if (parts[0].indexOf('(') === -1) {

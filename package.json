@@ -1,6 +1,6 @@
 {
   "name": "get-current-line",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "description": "Get the current line number of the executing file and method",
   "homepage": "https://github.com/bevry/get-current-line",
   "license": "MIT",
@@ -158,5 +158,7 @@
     "semi": false,
     "singleQuote": true
   },
-  "contributors": []
+  "contributors": [
+    "Benjamin Lupton (http://balupton.com)"
+  ]
 }

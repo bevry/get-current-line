@@ -67,12 +67,12 @@ Get the current line number of the executing file and method
 
 ## Usage
 
-[API Documentation.](http://master.get-current-line.bevry.surge.sh/docs/)
+[Complete API Documentation.](http://master.get-current-line.bevry.surge.sh/docs/)
 
 ```javascript
 import getCurrentLine from 'get-current-line'
 console.log(
-    getCurrentLine(/* optional offset number of lines to skip if your caller is wrapped */)
+    getCurrentLine(/* optional offset information in case the caller is wrapped */)
 )
 ```
 
@@ -128,7 +128,9 @@ No sponsors yet! Will you be the first?
 
 <h3>Contributors</h3>
 
-No contributors yet! Will you be the first?
+These amazing people have contributed code to this project:
+
+<ul><li><a href="http://balupton.com">Benjamin Lupton</a> — <a href="https://github.com/bevry/get-current-line/commits?author=balupton" title="View the GitHub contributions of Benjamin Lupton on repository bevry/get-current-line">view contributions</a></li></ul>
 
 <a href="https://github.com/bevry/get-current-line/blob/master/CONTRIBUTING.md#files">Discover how you can contribute by heading on over to the <code>CONTRIBUTING.md</code> file.</a>
 
