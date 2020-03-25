@@ -14,7 +14,7 @@ function wrapline() {
 	return getCurrentLine({ line: 2 })
 }
 
-kava.suite('get-current-line', function(suite, test) {
+kava.suite('get-current-line', function (suite, test) {
 	test('success', function named() {
 		const { line, method, file } = getCurrentLine()
 		equal(file.includes('test'), true, 'file includes test')

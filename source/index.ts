@@ -36,7 +36,7 @@ export default function getCurrentLine(offset: LineOffset = {}): LineInfo {
 	const result: LineInfo = {
 		line: -1,
 		method: 'unknown',
-		file: 'unknown'
+		file: 'unknown',
 	}
 
 	try {

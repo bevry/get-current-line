@@ -33,41 +33,9 @@ Get the current line number of the executing file and method
 <!-- /DESCRIPTION -->
 
 
-<!-- INSTALL/ -->
-
-<h2>Install</h2>
-
-<a href="https://npmjs.com" title="npm is a package manager for javascript"><h3>npm</h3></a>
-<ul>
-<li>Install: <code>npm install --save get-current-line</code></li>
-<li>Require: <code>require('get-current-line')</code></li>
-</ul>
-
-<a href="https://jspm.io" title="Native ES Modules CDN"><h3>jspm</h3></a>
-
-``` html
-<script type="module">
-    import * as pkg from '//dev.jspm.io/get-current-line'
-</script>
-```
-
-<h3><a href="https://editions.bevry.me" title="Editions are the best way to produce and consume packages you care about.">Editions</a></h3>
-
-<p>This package is published with the following editions:</p>
-
-<ul><li><code>get-current-line/source/index.ts</code> is typescript source code with import for modules</li>
-<li><code>get-current-line/edition-browsers/index.js</code> is typescript compiled against <a href="https://babeljs.io/docs/learn-es2015/" title="ECMAScript Next">ESNext</a> for web browsers with import for modules</li>
-<li><code>get-current-line</code> aliases <code>get-current-line/edition-esnext/index.js</code></li>
-<li><code>get-current-line/edition-esnext/index.js</code> is typescript compiled against <a href="https://babeljs.io/docs/learn-es2015/" title="ECMAScript Next">ESNext</a> for Node.js with require for modules</li></ul>
-
-<p>Environments older than Node.js v8 may need <a href="https://babeljs.io/docs/usage/polyfill/" title="A polyfill that emulates missing ECMAScript environment features">Babel's Polyfill</a> or something similar.</p>
-
-<!-- /INSTALL -->
-
-
 ## Usage
 
-[Complete API Documentation.](http://master.get-current-line.bevry.surge.sh/docs/)
+[Complete API Documentation.](http://master.get-current-line.bevry.surge.sh/docs/globals.html)
 
 ```javascript
 import getCurrentLine from 'get-current-line'
@@ -83,6 +51,53 @@ console.log(
     "file": "location/to/the/calling/file.js"
 }
 ```
+
+<!-- INSTALL/ -->
+
+<h2>Install</h2>
+
+<a href="https://npmjs.com" title="npm is a package manager for javascript"><h3>npm</h3></a>
+<ul>
+<li>Install: <code>npm install --save get-current-line</code></li>
+<li>Import: <code>import pkg from ('get-current-line')</code></li>
+<li>Require: <code>const pkg = require('get-current-line').default</code></li>
+</ul>
+
+<a href="https://www.pika.dev/cdn" title="100% Native ES Modules CDN"><h3>pika</h3></a>
+
+``` html
+<script type="module">
+    import pkg from '//cdn.pika.dev/get-current-line/^3.0.0'
+</script>
+```
+
+<a href="https://unpkg.com" title="unpkg is a fast, global content delivery network for everything on npm"><h3>unpkg</h3></a>
+
+``` html
+<script type="module">
+    import pkg from '//unpkg.com/get-current-line@^3.0.0'
+</script>
+```
+
+<a href="https://jspm.io" title="Native ES Modules CDN"><h3>jspm</h3></a>
+
+``` html
+<script type="module">
+    import pkg from '//dev.jspm.io/get-current-line@3.0.0'
+</script>
+```
+
+<h3><a href="https://editions.bevry.me" title="Editions are the best way to produce and consume packages you care about.">Editions</a></h3>
+
+<p>This package is published with the following editions:</p>
+
+<ul><li><code>get-current-line/source/index.ts</code> is <a href="https://www.typescriptlang.org/" title="TypeScript is a typed superset of JavaScript that compiles to plain JavaScript. ">TypeScript</a> source code with <a href="https://babeljs.io/docs/learn-es2015/#modules" title="ECMAScript Modules">Import</a> for modules</li>
+<li><code>get-current-line/edition-browsers/index.js</code> is <a href="https://www.typescriptlang.org/" title="TypeScript is a typed superset of JavaScript that compiles to plain JavaScript. ">TypeScript</a> compiled against <a href="https://en.wikipedia.org/wiki/ECMAScript#ES.Next" title="ECMAScript Next">ESNext</a> for web browsers with <a href="https://babeljs.io/docs/learn-es2015/#modules" title="ECMAScript Modules">Import</a> for modules</li>
+<li><code>get-current-line</code> aliases <code>get-current-line/edition-esnext/index.js</code></li>
+<li><code>get-current-line/edition-esnext/index.js</code> is <a href="https://www.typescriptlang.org/" title="TypeScript is a typed superset of JavaScript that compiles to plain JavaScript. ">TypeScript</a> compiled against <a href="https://en.wikipedia.org/wiki/ECMAScript#ES.Next" title="ECMAScript Next">ESNext</a> for <a href="https://nodejs.org" title="Node.js is a JavaScript runtime built on Chrome's V8 JavaScript engine">Node.js</a> with <a href="https://nodejs.org/dist/latest-v5.x/docs/api/modules.html" title="Node/CJS Modules">Require</a> for modules</li></ul>
+
+<!-- /INSTALL -->
+
 
 <!-- HISTORY/ -->
 

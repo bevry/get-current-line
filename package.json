@@ -1,21 +1,27 @@
 {
   "name": "get-current-line",
-  "version": "2.0.0",
+  "version": "3.0.0",
   "description": "Get the current line number of the executing file and method",
   "homepage": "https://github.com/bevry/get-current-line",
   "license": "MIT",
   "keywords": [
+    "browser",
+    "debug",
+    "debugging",
+    "export-default",
+    "file",
+    "filename",
     "line",
     "line number",
-    "number",
     "lineno",
-    "method",
-    "filename",
-    "file",
+    "log",
     "logging",
-    "debugging",
-    "debug",
-    "log"
+    "method",
+    "module",
+    "number",
+    "typed",
+    "types",
+    "typescript"
   ],
   "badges": {
     "list": [
@@ -53,6 +59,9 @@
   "maintainers": [
     "Benjamin Lupton <b@lupton.cc>"
   ],
+  "contributors": [
+    "Benjamin Lupton (http://balupton.com)"
+  ],
   "bugs": {
     "url": "https://github.com/bevry/get-current-line/issues"
   },
@@ -61,11 +70,11 @@
     "url": "https://github.com/bevry/get-current-line.git"
   },
   "engines": {
-    "node": ">=8"
+    "node": ">=10"
   },
   "editions": [
     {
-      "description": "typescript source code with import for modules",
+      "description": "TypeScript source code with Import for modules",
       "directory": "source",
       "entry": "index.ts",
       "tags": [
@@ -75,7 +84,7 @@
       "engines": false
     },
     {
-      "description": "typescript compiled against ESNext for web browsers with import for modules",
+      "description": "TypeScript compiled against ESNext for web browsers with Import for modules",
       "directory": "edition-browsers",
       "entry": "index.js",
       "tags": [
@@ -88,7 +97,7 @@
       }
     },
     {
-      "description": "typescript compiled against ESNext for Node.js with require for modules",
+      "description": "TypeScript compiled against ESNext for Node.js with Require for modules",
       "directory": "edition-esnext",
       "entry": "index.js",
       "tags": [
@@ -97,7 +106,7 @@
         "require"
       ],
       "engines": {
-        "node": "8 || 10 || 12 || 13",
+        "node": "10 || 12",
         "browsers": false
       }
     }
@@ -108,20 +117,21 @@
   "browser": "edition-browsers/index.js",
   "module": "edition-browsers/index.js",
   "devDependencies": {
-    "@typescript-eslint/eslint-plugin": "^2.11.0",
-    "@typescript-eslint/parser": "^2.11.0",
-    "assert-helpers": "^5.8.0",
-    "eslint": "^6.7.2",
-    "eslint-config-bevry": "^2.3.0",
-    "eslint-config-prettier": "^6.7.0",
-    "eslint-plugin-prettier": "^3.1.1",
+    "@typescript-eslint/eslint-plugin": "^2.25.0",
+    "@typescript-eslint/parser": "^2.25.0",
+    "assert-helpers": "^6.0.0",
+    "eslint": "^6.8.0",
+    "eslint-config-bevry": "^3.0.0",
+    "eslint-config-prettier": "^6.10.1",
+    "eslint-plugin-prettier": "^3.1.2",
     "kava": "^4.4.0",
-    "prettier": "^1.19.1",
-    "projectz": "^1.16.0",
+    "prettier": "^2.0.2",
+    "projectz": "^1.19.0",
     "surge": "^0.21.3",
-    "typedoc": "^0.15.4",
-    "typescript": "^3.7.3",
-    "valid-directory": "^1.6.0"
+    "typedoc": "^0.17.3",
+    "typescript": "^3.8.3",
+    "valid-directory": "^1.6.0",
+    "valid-module": "^1.0.0"
   },
   "scripts": {
     "our:clean": "rm -Rf ./docs ./edition* ./es2015 ./es5 ./out ./.next",
@@ -142,10 +152,11 @@
     "our:setup": "npm run our:setup:install",
     "our:setup:install": "npm install",
     "our:test": "npm run our:verify && npm test",
-    "our:verify": "npm run our:verify:directory && npm run our:verify:eslint && npm run our:verify:prettier && npm run our:verify:typescript",
-    "our:verify:directory": "npx valid-directory",
+    "our:verify": "npm run our:verify:directory && npm run our:verify:eslint && npm run our:verify:module && npm run our:verify:prettier && npm run our:verify:typescript",
+    "our:verify:directory": "valid-directory",
     "our:verify:eslint": "eslint --fix --ignore-pattern '**/*.d.ts' --ignore-pattern '**/vendor/' --ignore-pattern '**/node_modules/' --ext .mjs,.js,.jsx,.ts,.tsx ./source",
-    "our:verify:prettier": "prettier --write ./source/**",
+    "our:verify:module": "valid-module",
+    "our:verify:prettier": "prettier --write .",
     "our:verify:typescript": "tsc --noEmit --project tsconfig.json",
     "test": "node ./edition-esnext/test.js"
   },
@@ -157,8 +168,5 @@
   "prettier": {
     "semi": false,
     "singleQuote": true
-  },
-  "contributors": [
-    "Benjamin Lupton (http://balupton.com)"
-  ]
+  }
 }
