@@ -1,5 +1,19 @@
 # History
 
+## v5.0.0 2020 May 8
+
+-   Breaking Change:
+
+    Offset intention is now compatible with v3 and below. That is, skipping will continue until:
+
+        1. The file or method is found
+        2. Once found, will continue until neither the file nor method are found anymore
+        3. Once exited, the frame offset will then apply
+
+    If you still wish to capture the method or the file, combine them with `frames: -1`.
+
+-   Updated dependencies, [base files](https://github.com/bevry/base), and [editions](https://editions.bevry.me) using [boundation](https://github.com/bevry/boundation)
+
 ## v4.0.0 2020 May 8
 
 -   Breaking Change:

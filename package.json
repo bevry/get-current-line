@@ -1,6 +1,6 @@
 {
   "name": "get-current-line",
-  "version": "4.0.0",
+  "version": "5.0.0",
   "description": "Get the current line number of the executing file and method",
   "homepage": "https://github.com/bevry/get-current-line",
   "license": "MIT",

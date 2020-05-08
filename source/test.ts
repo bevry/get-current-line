@@ -7,11 +7,11 @@ function wrapper(opts?: LineOffset) {
 }
 
 function wrapmethod() {
-	return wrapper({ method: 'wrapmethod', frames: 1 })
+	return wrapper({ method: 'wrapmethod' })
 }
 
 function wrapline() {
-	return wrapper({ method: 'wrapline', frames: 1 })
+	return wrapper({ method: 'wrapline' })
 }
 
 kava.suite('get-current-line', function (suite, test) {
