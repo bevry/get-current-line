@@ -21,17 +21,17 @@ export interface LineInfo {
  */
 export interface LineOffset {
 	/**
-	 * if provided, continue until a method containing this string is exited
+	 * if provided, continue until a method containing or matching this string is exited
 	 * if provided alongside a file, will continue until neither the file nor method are found
 	 * this allows file and method to act as fallbacks for each other, such that if one is not found, it doesn't skip everything
 	 */
-	method?: string | null
+	method?: RegExp | string | null
 	/**
-	 * if provided, continue until a file containing this string is exited
+	 * if provided, continue until a file containing or matching this string is exited
 	 * if provided alongside a method, will continue until neither the file nor method are found
 	 * this allows file and method to act as fallbacks for each other, such that if one is not found, it doesn't skip everything
 	 */
-	file?: string | null
+	file?: RegExp | string | null
 	/**
 	 * once we have satisfied the found condition, if any, then apply this index offset to the frames
 	 * e.g. 1 would mean next frame, and -1 would mean the previous frame
@@ -140,7 +140,16 @@ export default function getCurrentLine(
 			}
 
 			// continue until found and exited
-			if (line.includes(offset.file) || line.includes(offset.method)) {
+			if (
+				(offset.file &&
+					(typeof offset.file === 'string'
+						? line.includes(offset.file)
+						: offset.file.test(line))) ||
+				(offset.method &&
+					(typeof offset.method === 'string'
+						? line.includes(offset.method)
+						: offset.method.test(line)))
+			) {
 				found = true
 				// next item
 				++i

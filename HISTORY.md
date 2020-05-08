@@ -1,5 +1,9 @@
 # History
 
+## v5.1.0 2020 May 8
+
+-   Add support for Regular Expressions for `file` and `method` offsets, to support such things as case insentitivity
+
 ## v5.0.0 2020 May 8
 
 -   Breaking Change:
@@ -11,8 +15,6 @@
         3. Once exited, the frame offset will then apply
 
     If you still wish to capture the method or the file, combine them with `frames: -1`.
-
--   Updated dependencies, [base files](https://github.com/bevry/base), and [editions](https://editions.bevry.me) using [boundation](https://github.com/bevry/boundation)
 
 ## v4.0.0 2020 May 8
 

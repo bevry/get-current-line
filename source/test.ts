@@ -10,8 +10,8 @@ function wrapmethod() {
 	return wrapper({ method: 'wrapmethod' })
 }
 
-function wrapline() {
-	return wrapper({ method: 'wrapline' })
+function wrapLine() {
+	return wrapper({ method: /wrapline/i })
 }
 
 kava.suite('get-current-line', function (suite, test) {
@@ -52,11 +52,11 @@ kava.suite('get-current-line', function (suite, test) {
 			`second line [${secondLine}] was later than the first line [${line}]`
 		)
 	})
-	test('wrapline', function named() {
-		const { line, method, file } = wrapline()
+	test('wrapLine', function named() {
+		const { line, method, file } = wrapLine()
 		equal(file.includes('test'), true, `file [${file}] includes test`)
 		equal(method.includes('named'), true, `method [${method}] includes name`)
-		const secondLine = wrapline().line
+		const secondLine = wrapLine().line
 		equal(
 			line < secondLine,
 			true,
