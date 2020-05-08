@@ -8,7 +8,14 @@ export interface LineInfo {
 	file: string
 }
 
-export type LineOffset = Partial<LineInfo>
+export interface LineOffset {
+	/** continue skipping frames until we encounter this method */
+	method?: string | null
+	/** continue skipping frames until we encounter this file */
+	file?: string | null
+	/** once we have encountered our first desired frame, continue for this many frames */
+	frames?: number
+}
 
 /**
  * Get the information about the line that called this method.
@@ -28,11 +35,10 @@ export type LineOffset = Partial<LineInfo>
  * }
  * ```
  */
-export default function getCurrentLine(offset: LineOffset = {}): LineInfo {
-	// Prepare
-	if (offset.file == null) offset.file = __filename
-	if (offset.method == null) offset.method = 'getCurrentLine'
-	if (offset.line == null) offset.line = 0
+export default function getCurrentLine(
+	offset: LineOffset = { file: __filename, method: 'getCurrentLine', frames: 1 }
+): LineInfo {
+	// prepare
 	const result: LineInfo = {
 		line: -1,
 		method: 'unknown',
@@ -76,12 +82,23 @@ export default function getCurrentLine(offset: LineOffset = {}): LineInfo {
 			// Filter out empty line items
 			.filter((line: string) => line.length !== 0)
 
+		// Continue
+		let foundFile: boolean = !offset.file
+		let foundMethod: boolean = !offset.method
+
 		// Parse our lines
 		for (const line of lines) {
 			// offset
-			if (line.includes(offset.file) || line.includes(offset.method)) continue
-			if (offset.line !== 0) {
-				--offset.line
+			if (!foundFile && line.includes(offset.file)) {
+				foundFile = true
+			}
+			if (!foundMethod && line.includes(offset.method)) {
+				foundMethod = true
+			}
+			if (!foundFile || !foundMethod) {
+				continue
+			} else if (offset.frames) {
+				--offset.frames
 				continue
 			}
 

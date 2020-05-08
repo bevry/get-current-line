@@ -1,32 +1,40 @@
 import { equal } from 'assert-helpers'
 import kava from 'kava'
-import getCurrentLine from './index.js'
+import getCurrentLine, { LineOffset } from './index.js'
 
-function wrapper() {
-	return getCurrentLine()
+function wrapper(opts?: LineOffset) {
+	return getCurrentLine(opts)
 }
 
 function wrapmethod() {
-	return getCurrentLine({ method: 'wrapmethod' })
+	return wrapper({ method: 'wrapmethod', frames: 1 })
 }
 
 function wrapline() {
-	return getCurrentLine({ line: 2 })
+	return wrapper({ method: 'wrapline', frames: 1 })
 }
 
 kava.suite('get-current-line', function (suite, test) {
 	test('success', function named() {
 		const { line, method, file } = getCurrentLine()
-		equal(file.includes('test'), true, 'file includes test')
-		equal(method.includes('named'), true, 'method includes name')
+		equal(file.includes('test'), true, `file [${file}] includes test`)
+		equal(method.includes('named'), true, `method [${method}] includes name`)
 		const secondLine = getCurrentLine().line
-		equal(line < secondLine, true, 'second line was laster than the first line')
+		equal(
+			line < secondLine,
+			true,
+			`second line [${secondLine}] was later than the first line [${line}]`
+		)
 	})
 	test('wrapper', function named() {
 		const a = wrapper()
 		const b = wrapper()
-		equal(a.file.includes('test'), true, 'file includes test')
-		equal(a.method.includes('wrapper'), true, 'method includes wrapper')
+		equal(a.file.includes('test'), true, `file [${a.file}] includes test`)
+		equal(
+			a.method.includes('wrapper'),
+			true,
+			`method [${a.method}] includes wrapper`
+		)
 		equal(
 			a.line,
 			b.line,
@@ -35,16 +43,24 @@ kava.suite('get-current-line', function (suite, test) {
 	})
 	test('wrapmethod', function named() {
 		const { line, method, file } = wrapmethod()
-		equal(file.includes('test'), true, 'file includes test')
-		equal(method.includes('named'), true, 'method includes name')
+		equal(file.includes('test'), true, `file [${file}] includes test`)
+		equal(method.includes('named'), true, `method [${method}] includes name`)
 		const secondLine = wrapmethod().line
-		equal(line < secondLine, true, 'second line was laster than the first line')
+		equal(
+			line < secondLine,
+			true,
+			`second line [${secondLine}] was later than the first line [${line}]`
+		)
 	})
 	test('wrapline', function named() {
 		const { line, method, file } = wrapline()
-		equal(file.includes('test'), true, 'file includes test')
-		equal(method.includes('named'), true, 'method includes name')
+		equal(file.includes('test'), true, `file [${file}] includes test`)
+		equal(method.includes('named'), true, `method [${method}] includes name`)
 		const secondLine = wrapline().line
-		equal(line < secondLine, true, 'second line was laster than the first line')
+		equal(
+			line < secondLine,
+			true,
+			`second line [${secondLine}] was later than the first line [${line}]`
+		)
 	})
 })

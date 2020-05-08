@@ -1,5 +1,19 @@
 # History
 
+## v4.0.0 2020 May 8
+
+-   Breaking Change:
+
+    Behaviour of the offset has changed, it now continues until the provided file (if any) or method (if any) is found, once found, it will then continue for the specified frames (if any).
+
+    This does not affect you if you never passed an offset, however if you did, you probably want to add `frames: 1` so that it continues oen more stack frame to the probable caller, rather than just stopping at the frame of the found method or file.
+
+    The `lines` offset parameter has been discarded and replaced by `frames`, however you probably always want to use `frames` with a `file` or `method` be sure to specify it.
+
+    The default offset properties now only apply if no properties were specified, rather than just if a particular property was empty.
+
+-   Updated dependencies, [base files](https://github.com/bevry/base), and [editions](https://editions.bevry.me) using [boundation](https://github.com/bevry/boundation)
+
 ## v3.1.0 2020 May 4
 
 -   Updated dependencies, [base files](https://github.com/bevry/base), and [editions](https://editions.bevry.me) using [boundation](https://github.com/bevry/boundation)
