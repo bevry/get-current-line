@@ -1,5 +1,9 @@
 # History
 
+## v5.2.0 2020 May 13
+
+-   Updated dependencies, [base files](https://github.com/bevry/base), and [editions](https://editions.bevry.me) using [boundation](https://github.com/bevry/boundation)
+
 ## v5.1.0 2020 May 8
 
 -   Add support for Regular Expressions for `file` and `method` offsets, to support such things as case insentitivity
