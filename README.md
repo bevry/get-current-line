@@ -67,7 +67,7 @@ console.log(
 
 ``` html
 <script type="module">
-    import pkg from '//cdn.pika.dev/get-current-line/^5.3.0'
+    import pkg from '//cdn.pika.dev/get-current-line/^5.4.0'
 </script>
 ```
 
@@ -75,7 +75,7 @@ console.log(
 
 ``` html
 <script type="module">
-    import pkg from '//unpkg.com/get-current-line@^5.3.0'
+    import pkg from '//unpkg.com/get-current-line@^5.4.0'
 </script>
 ```
 
@@ -83,7 +83,7 @@ console.log(
 
 ``` html
 <script type="module">
-    import pkg from '//dev.jspm.io/get-current-line@5.3.0'
+    import pkg from '//dev.jspm.io/get-current-line@5.4.0'
 </script>
 ```
 
