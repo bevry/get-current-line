@@ -67,7 +67,7 @@ console.log(
 
 ``` html
 <script type="module">
-    import pkg from '//cdn.pika.dev/get-current-line/^5.2.0'
+    import pkg from '//cdn.pika.dev/get-current-line/^5.3.0'
 </script>
 ```
 
@@ -75,7 +75,7 @@ console.log(
 
 ``` html
 <script type="module">
-    import pkg from '//unpkg.com/get-current-line@^5.2.0'
+    import pkg from '//unpkg.com/get-current-line@^5.3.0'
 </script>
 ```
 
@@ -83,7 +83,7 @@ console.log(
 
 ``` html
 <script type="module">
-    import pkg from '//dev.jspm.io/get-current-line@5.2.0'
+    import pkg from '//dev.jspm.io/get-current-line@5.3.0'
 </script>
 ```
 
@@ -125,7 +125,7 @@ console.log(
 
 These amazing people are maintaining this project:
 
-<ul><li>Benjamin Lupton</li></ul>
+<ul><li><a href="https://balupton.com">Benjamin Lupton</a> — <a href="https://github.com/bevry/get-current-line/commits?author=balupton" title="View the GitHub contributions of Benjamin Lupton on repository bevry/get-current-line">view contributions</a></li></ul>
 
 <h3>Sponsors</h3>
 
@@ -145,8 +145,7 @@ No sponsors yet! Will you be the first?
 
 These amazing people have contributed code to this project:
 
-<ul><li><a href="https://github.com/balupton">Benjamin Lupton</a> — <a href="https://github.com/bevry/get-current-line/commits?author=balupton" title="View the GitHub contributions of Benjamin Lupton on repository bevry/get-current-line">view contributions</a></li>
-<li>Benjamin Lupton</li></ul>
+<ul><li><a href="https://balupton.com">Benjamin Lupton</a> — <a href="https://github.com/bevry/get-current-line/commits?author=balupton" title="View the GitHub contributions of Benjamin Lupton on repository bevry/get-current-line">view contributions</a></li></ul>
 
 <a href="https://github.com/bevry/get-current-line/blob/master/CONTRIBUTING.md#files">Discover how you can contribute by heading on over to the <code>CONTRIBUTING.md</code> file.</a>
 
@@ -159,7 +158,7 @@ These amazing people have contributed code to this project:
 
 Unless stated otherwise all works are:
 
-<ul><li>Copyright &copy; 2011+ Benjamin Lupton</li></ul>
+<ul><li>Copyright &copy; 2011+ <a href="https://balupton.com">Benjamin Lupton</a></li></ul>
 
 and licensed under:
 
