@@ -66,14 +66,14 @@ console.log(
 <a href="https://deno.land" title="Deno is a secure runtime for JavaScript and TypeScript, it is an alternative for Node.js"><h3>Deno</h3></a>
 
 ``` typescript
-import pkg from 'https://unpkg.com/get-current-line@^5.13.0/edition-deno/index.ts'
+import pkg from 'https://unpkg.com/get-current-line@^5.14.0/edition-deno/index.ts'
 ```
 
 <a href="https://www.pika.dev/cdn" title="100% Native ES Modules CDN"><h3>pika</h3></a>
 
 ``` html
 <script type="module">
-    import pkg from '//cdn.pika.dev/get-current-line/^5.13.0'
+    import pkg from '//cdn.pika.dev/get-current-line/^5.14.0'
 </script>
 ```
 
@@ -81,7 +81,7 @@ import pkg from 'https://unpkg.com/get-current-line@^5.13.0/edition-deno/index.t
 
 ``` html
 <script type="module">
-    import pkg from '//unpkg.com/get-current-line@^5.13.0'
+    import pkg from '//unpkg.com/get-current-line@^5.14.0'
 </script>
 ```
 
@@ -89,7 +89,7 @@ import pkg from 'https://unpkg.com/get-current-line@^5.13.0/edition-deno/index.t
 
 ``` html
 <script type="module">
-    import pkg from '//dev.jspm.io/get-current-line@5.13.0'
+    import pkg from '//dev.jspm.io/get-current-line@5.14.0'
 </script>
 ```
 
