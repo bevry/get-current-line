@@ -1,8 +1,8 @@
 import { equal } from 'assert-helpers'
 import kava from 'kava'
-import getCurrentLine, { LineOffset } from './index.js'
+import getCurrentLine, { Offset } from './index.js'
 
-function wrapper(opts?: LineOffset) {
+function wrapper(opts?: Offset) {
 	return getCurrentLine(opts)
 }
 

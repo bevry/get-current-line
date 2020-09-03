@@ -52,6 +52,8 @@ console.log(
 }
 ```
 
+If you wish to have something that fetches the current file and directory paths, such as a cross-enviroment compatible `__filename` and `__dirname` you can use the [`filedirname` package.](https://github.com/bevry/filedirname).
+
 <!-- INSTALL/ -->
 
 <h2>Install</h2>
@@ -66,14 +68,14 @@ console.log(
 <a href="https://deno.land" title="Deno is a secure runtime for JavaScript and TypeScript, it is an alternative for Node.js"><h3>Deno</h3></a>
 
 ``` typescript
-import pkg from 'https://unpkg.com/get-current-line@^5.16.0/edition-deno/index.ts'
+import pkg from 'https://unpkg.com/get-current-line@^6.0.0/edition-deno/index.ts'
 ```
 
 <a href="https://www.skypack.dev" title="Skypack is a JavaScript Delivery Network for modern web apps"><h3>Skypack</h3></a>
 
 ``` html
 <script type="module">
-    import pkg from '//cdn.skypack.dev/get-current-line@^5.16.0'
+    import pkg from '//cdn.skypack.dev/get-current-line@^6.0.0'
 </script>
 ```
 
@@ -81,7 +83,7 @@ import pkg from 'https://unpkg.com/get-current-line@^5.16.0/edition-deno/index.t
 
 ``` html
 <script type="module">
-    import pkg from '//unpkg.com/get-current-line@^5.16.0'
+    import pkg from '//unpkg.com/get-current-line@^6.0.0'
 </script>
 ```
 
@@ -89,7 +91,7 @@ import pkg from 'https://unpkg.com/get-current-line@^5.16.0/edition-deno/index.t
 
 ``` html
 <script type="module">
-    import pkg from '//dev.jspm.io/get-current-line@5.16.0'
+    import pkg from '//dev.jspm.io/get-current-line@6.0.0'
 </script>
 ```
 

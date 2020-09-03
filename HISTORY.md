@@ -1,5 +1,17 @@
 # History
 
+## v6.0.0 2020 September 3
+
+-   Now compatible with a wider range of environments, including web browsers
+-   Optimised the fetching of location information from frames
+-   Introduced `getFileFromError` and `getLocationFromError` for a wider range of compatibility and usability
+-   Introduced `immediate` property to the offset interface
+-   Possible Breaking Changes:
+    -   Introduced `char` property to the location interface
+    -   Renamed `LineInfo` to `Location`
+    -   Rneamed `LineOffset` to `Offset`
+-   Updated dependencies, [base files](https://github.com/bevry/base), and [editions](https://editions.bevry.me) using [boundation](https://github.com/bevry/boundation)
+
 ## v5.16.0 2020 August 18
 
 -   Updated dependencies, [base files](https://github.com/bevry/base), and [editions](https://editions.bevry.me) using [boundation](https://github.com/bevry/boundation)
