@@ -82,7 +82,8 @@ export function getFramesFromError(error: Error): Array<string> {
 	return frames
 }
 
-const lineRegex = /\s+at\s(?:(?<method>.+?)\s\()?(?<file>.+?):(?<line>\d+):(?<char>\d+)\)?\s*$/
+const lineRegex =
+	/\s+at\s(?:(?<method>.+?)\s\()?(?<file>.+?):(?<line>\d+):(?<char>\d+)\)?\s*$/
 
 /**
  * Get the locations from a list of error stack frames.
