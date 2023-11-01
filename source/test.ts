@@ -23,7 +23,7 @@ kava.suite('get-current-line', function (suite, test) {
 		equal(
 			line < secondLine,
 			true,
-			`second line [${secondLine}] was later than the first line [${line}]`
+			`second line [${secondLine}] was later than the first line [${line}]`,
 		)
 	})
 	test('wrapper', function named() {
@@ -33,12 +33,12 @@ kava.suite('get-current-line', function (suite, test) {
 		equal(
 			a.method.includes('wrapper'),
 			true,
-			`method [${a.method}] includes wrapper`
+			`method [${a.method}] includes wrapper`,
 		)
 		equal(
 			a.line,
 			b.line,
-			'both lines were the same due to the lack of offset in the wrapper'
+			'both lines were the same due to the lack of offset in the wrapper',
 		)
 	})
 	test('wrapmethod', function named() {
@@ -49,7 +49,7 @@ kava.suite('get-current-line', function (suite, test) {
 		equal(
 			line < secondLine,
 			true,
-			`second line [${secondLine}] was later than the first line [${line}]`
+			`second line [${secondLine}] was later than the first line [${line}]`,
 		)
 	})
 	test('wrapLine', function named() {
@@ -60,7 +60,7 @@ kava.suite('get-current-line', function (suite, test) {
 		equal(
 			line < secondLine,
 			true,
-			`second line [${secondLine}] was later than the first line [${line}]`
+			`second line [${secondLine}] was later than the first line [${line}]`,
 		)
 	})
 })

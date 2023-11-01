@@ -135,7 +135,7 @@ const failureLocation: Location = {
  */
 export function getLocationWithOffset(
 	locations: Array<Location>,
-	offset: Offset
+	offset: Offset,
 ): Location {
 	// Continue
 	let found: boolean = !offset.file && !offset.method
@@ -205,7 +205,7 @@ export function getFileFromError(
 	offset: Offset = {
 		file: /./,
 		immediate: true,
-	}
+	},
 ): string {
 	const locations = getLocationsFromError(error)
 	return getLocationWithOffset(locations, offset).file
@@ -219,7 +219,7 @@ export function getLocationFromError(
 	error: Error,
 	offset: Offset = {
 		immediate: true,
-	}
+	},
 ): Location {
 	const locations = getLocationsFromError(error)
 	return getLocationWithOffset(locations, offset)
@@ -247,7 +247,7 @@ export default function getCurrentLine(
 		method: 'getCurrentLine',
 		frames: 0,
 		immediate: false,
-	}
+	},
 ): Location {
 	return getLocationFromError(new Error(), offset)
 }
