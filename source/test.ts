@@ -6,8 +6,8 @@ function wrapper(opts?: Offset) {
 	return getCurrentLine(opts)
 }
 
-function wrapmethod() {
-	return wrapper({ method: 'wrapmethod' })
+function wrapMethod() {
+	return wrapper({ method: 'wrapMethod' })
 }
 
 function wrapLine() {
@@ -41,11 +41,11 @@ kava.suite('get-current-line', function (suite, test) {
 			'both lines were the same due to the lack of offset in the wrapper'
 		)
 	})
-	test('wrapmethod', function named() {
-		const { line, method, file } = wrapmethod()
+	test('wrapMethod', function named() {
+		const { line, method, file } = wrapMethod()
 		equal(file.includes('test'), true, `file [${file}] includes test`)
 		equal(method.includes('named'), true, `method [${method}] includes name`)
-		const secondLine = wrapmethod().line
+		const secondLine = wrapMethod().line
 		equal(
 			line < secondLine,
 			true,

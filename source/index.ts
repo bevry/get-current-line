@@ -82,8 +82,14 @@ export function getFramesFromError(error: Error): Array<string> {
 	return frames
 }
 
-const lineRegex =
-	/\s+at\s(?:(?<method>.+?)\s\()?(?<file>.+?):(?<line>\d+):(?<char>\d+)\)?\s*$/
+// Compatibility with Node.js versions <10
+let frameRegexNamedGroups: RegExp, frameRegexNumberedGroups: RegExp
+try {
+	frameRegexNamedGroups =
+		/\s+at\s(?:(?<method>.+?)\s\()?(?<file>.+?):(?<line>\d+):(?<char>\d+)\)?\s*$/
+} catch (error) {
+	frameRegexNumberedGroups = /\s+at\s(?:(.+?)\s\()?(.+?):(\d+):(\d+)\)?\s*$/
+}
 
 /**
  * Get the locations from a list of error stack frames.
@@ -92,27 +98,40 @@ export function getLocationsFromFrames(frames: Array<string>): Array<Location> {
 	// Prepare
 	const locations: Array<Location> = []
 
-	// Cycle through the lines
-	for (const frame of frames) {
-		// ensure each line is a string
-		const line = (frame || '').toString()
+	// Cycle through the frames
+	for (let frame of frames) {
+		// ensure each frame is a string
+		frame = (frame || '').toString()
 
-		// skip empty lines
-		if (line.length === 0) continue
+		// skip empty frames
+		if (frame.length === 0) continue
 
 		// Error
 		// at file:///Users/balupton/Projects/active/get-current-line/asd.js:1:13
 		// at ModuleJob.run (internal/modules/esm/module_job.js:140:23)
 		// at async Loader.import (internal/modules/esm/loader.js:165:24)
 		// at async Object.loadESM (internal/process/esm_loader.js:68:5)
-		const match = line.match(lineRegex)
-		if (match && match.groups) {
-			locations.push({
-				method: match.groups.method || '',
-				file: match.groups.file || '',
-				line: Number(match.groups.line),
-				char: Number(match.groups.char),
-			})
+		if (frameRegexNamedGroups) {
+			const match = frame.match(frameRegexNamedGroups)
+			if (match && match.groups) {
+				locations.push({
+					method: match.groups.method || '',
+					file: match.groups.file || '',
+					line: Number(match.groups.line),
+					char: Number(match.groups.char),
+				})
+			}
+		} else {
+			const [match, method, file, line, char] =
+				frame.match(frameRegexNumberedGroups) || []
+			if (match) {
+				locations.push({
+					method: method || '',
+					file: file || '',
+					line: Number(line),
+					char: Number(char),
+				})
+			}
 		}
 	}
 
