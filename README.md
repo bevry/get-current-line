@@ -52,6 +52,24 @@ console.log(
 }
 ```
 
+```javascript
+
+        console.table(getCurrentLine());
+
+        console.log(
+            '%s:%d:%d',
+            getCurrentLine().file,
+            getCurrentLine().line,
+            getCurrentLine().char,
+        )
+
+        console.log(
+            getCurrentLine().file,
+            getCurrentLine().line,
+            getCurrentLine().char,
+        )
+```
+
 If you wish to have something that fetches the current file and directory paths, such as a cross-enviroment compatible `__filename` and `__dirname` you can use the [`filedirname` package.](https://github.com/bevry/filedirname).
 
 <!-- INSTALL/ -->
@@ -60,6 +78,7 @@ If you wish to have something that fetches the current file and directory paths,
 
 <a href="https://npmjs.com" title="npm is a package manager for javascript"><h3>npm</h3></a>
 <ul>
+ <li>Install: <code>pnpm add -D get-current-line</code></li>    
 <li>Install: <code>npm install --save get-current-line</code></li>
 <li>Import: <code>import pkg from ('get-current-line')</code></li>
 <li>Require: <code>const pkg = require('get-current-line').default</code></li>
